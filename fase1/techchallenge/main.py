@@ -1,47 +1,18 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from typing import Optional
-from uuid import UUID, uuid4
+from routers import localdata, webdata
 
-class Item(BaseModel):
-    name: str
-    description: Optional[str] = None
-    price: float
-    on_offer: bool = False
-
+class WineRequest(BaseModel):
+    page: str
+    subpage: str
+    api_key: str
 
 app = FastAPI()
-items = {}
 
 app.include_router(localdata.router)
 app.include_router(webdata.router)
 
-@app.post("/items/", response_model=Item)
-async def create_item(item: Item):
-    item_id = uuid4()
-    items[item_id] = item
-    return item
-
-@app.get("/items/", response_model=dict)
-async def read_items():
-    return items
-
-@app.get("/items/{item_id}", response_model=Item)
-async def read_item(item_id: UUID):
-    if item_id not in items:
-        raise HTTPException(status_code=404, detail="Item not found")
-    return items[item_id]
-
-@app.put("/items/{item_id}", response_model=Item)
-async def update_item(item_id: UUID, item: Item):
-    if item_id not in items:
-        raise HTTPException(status_code=404, detail="Item not found")
-    items[item_id] = item
-    return item
-
-@app.delete("/items/{item_id}", response_model=Item)
-async def delete_item(item_id: UUID):
-    if item_id not in items:
-        raise HTTPException(status_code=404, detail="Item not found")
-    return items.pop(item_id)
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the WINE API"}
 
