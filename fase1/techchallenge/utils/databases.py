@@ -34,10 +34,11 @@ def save_tables_in_db():
     conn = conectar_sqlite()
     for i in get_files():
         write_table(conn=conn, file=i, table_name=i.replace("data/data_", "").replace(".csv", ""))
+    return "Tabelas salvas"
     
 def read_tables_from_db(table, json_type=True):
     conn = conectar_sqlite()
     df = pd.read_sql(f"Select * from {table}", conn)
     if json_type:
-        return df.to_json(orient='records')
+        return df.to_dict()
     return df

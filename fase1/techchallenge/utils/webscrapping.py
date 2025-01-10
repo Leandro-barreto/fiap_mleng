@@ -3,7 +3,8 @@ import csv
 import io
 from bs4 import BeautifulSoup
 
-embrapa_url = "http://vitibrasil.cnpuv.embrapa.br/index.php"
+#embrapa_url = "http://vitibrasil.cnpuv.embrapa.br/index.php"
+embrapa_url = "http://vitiasdasbrasil.cnpuv.embrapa.br/index.php"
 
 def check_connection(url):
     try:
@@ -15,12 +16,13 @@ def check_connection(url):
     if re.status_code != 200:
         print("erro")
         return -100
+    return re
 
 def get_pages(page):
     pages = {}
     re = check_connection(embrapa_url)
     if isinstance(re, int):
-        return "Falha de Conexão"
+        return re
     soup = BeautifulSoup(re._content)
     for i in soup.find_all('button'):
         texto = i.text
@@ -139,5 +141,8 @@ def get_dataframes(pages):
 
 def get_all():
     pages = get_pages(embrapa_url)
+    if isinstance(pages, int):
+        return pages
     pages = get_subpages(pages)
     get_dataframes(pages)
+    return {'message' : 'Salvando as tabelas em base local'}
