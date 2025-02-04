@@ -1,10 +1,11 @@
 import requests
 import csv
 import io
+import json
 from bs4 import BeautifulSoup
 
-#embrapa_url = "http://vitibrasil.cnpuv.embrapa.br/index.php"
-embrapa_url = "http://vitiasdasbrasil.cnpuv.embrapa.br/index.php"
+embrapa_url = "http://vitibrasil.cnpuv.embrapa.br/index.php"
+# embrapa_url = "http://vitiasdasbrasil.cnpuv.embrapa.br/index.php"
 
 def check_connection(url):
     try:
@@ -46,7 +47,7 @@ def get_subpages(pages):
             btn_value = '' if 'value' not in i.attrs.keys() else i.attrs['value']
             if 'subopt' in btn_value:
                 print(f"subopt: {btn_value}")
-                values['has_subpages'] = 'yes' 
+                values['has_subpages'] = 'Yes' 
                 subpages_dict[text] = f"{values['link']}&subopcao={btn_value}"
         values['sub_pages'] = subpages_dict
     return pages
@@ -145,4 +146,4 @@ def get_all():
         return pages
     pages = get_subpages(pages)
     get_dataframes(pages)
-    return {'message' : 'Salvando as tabelas em base local'}
+    return {'message' : 'Tabelas salvas na base local'}

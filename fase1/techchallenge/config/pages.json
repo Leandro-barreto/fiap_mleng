@@ -1,0 +1,53 @@
+{
+    "Producao": {
+        "link": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_02",
+        "has_subpages": "No",
+        "prefix": "Producao",
+        "sub_pages": {},
+        "download_link": {}
+    },
+    "Processamento": {
+        "link": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_03",
+        "has_subpages": "Yes",
+        "prefix": "Processa",
+        "sub_pages": {
+            "Viniferas": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_03&subopcao=subopt_01",
+            "Americanas e hibridas": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_03&subopcao=subopt_02",
+            "Uvas de mesa": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_03&subopcao=subopt_03",
+            "Sem classificacao": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_03&subopcao=subopt_04"
+        },
+        "download_link": {}
+    },
+    "Comercializacao": {
+        "link": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_04",
+        "prefix": "Comercio",
+        "has_subpages": "No",
+        "sub_pages": {},
+        "download_link": {}
+    },
+    "Importacao": {
+        "link": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_05",
+        "has_subpages": "Yes",
+        "prefix": "Imp",
+        "sub_pages": {
+            "Vinhos de mesa": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_05&subopcao=subopt_01",
+            "Espumantes": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_05&subopcao=subopt_02",
+            "Uvas frescas": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_05&subopcao=subopt_03",
+            "Uvas passas": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_05&subopcao=subopt_04",
+            "Suco de uva": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_05&subopcao=subopt_05"
+        },
+        "download_link": {}
+    },
+    "Exportacao": {
+        "link": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_06",
+        "has_subpages": "Yes",
+        "prefix": "Exp",
+        "sub_pages": {
+            "Vinhos de mesa": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_06&subopcao=subopt_01",
+            "Espumantes": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_06&subopcao=subopt_02",
+            "Uvas frescas": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_06&subopcao=subopt_03",
+            "Suco de uva": "http://vitibrasil.cnpuv.embrapa.br/index.php?opcao=opt_06&subopcao=subopt_04"
+        },
+        "download_link": {}
+    }
+}
